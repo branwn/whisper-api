@@ -1,4 +1,4 @@
-from flask import Flask, abort, request
+from flask import Flask, abort, request, render_template
 from tempfile import NamedTemporaryFile
 import whisper
 import torch
@@ -12,13 +12,12 @@ model = whisper.load_model("base", device=DEVICE)
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "Whisper Hello World!"
-
-
-@app.route('/whisper', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def handler():
+    # return index page
+    if request.method == 'GET':
+        return render_template('index.html')
+
     if not request.files:
         # If the user didn't submit any files, return a 400 (Bad Request) error.
         abort(400)

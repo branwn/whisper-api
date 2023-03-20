@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+   <title>Whisper API</title>
+   <!-- <link rel="stylesheet" href="http://stash.compjour.org/assets/css/foundation.css"> -->
+</head>
+<html>
+   <body>
+      <h1>Speech to Text (power by OpenAI's Whisper)</h1>
+      <br>
+      <b>To submit .mp3 file</b>
+      <form action = "" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+      <br>
+      <b>Or</b>
+      <br><br>
+      <b>using Command Line:</b> curl -F "file=@/path/to/file" http://localhost:5000
+   </body>
+</html>
